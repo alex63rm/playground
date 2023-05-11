@@ -6,7 +6,7 @@
 /*   By: alejarod <alejarod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 21:51:44 by alejarod          #+#    #+#             */
-/*   Updated: 2023/05/09 00:42:54 by alejarod         ###   ########.fr       */
+/*   Updated: 2023/05/09 20:15:07 by alejarod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,9 @@
 // we want to simulate ping -c 5 google.com | grep rtt
 /* Logic: If we want our program to run 2 processes before reaching the
 return (0) of the main, we need to run them in paralel inside (with forks)
-and also "deviate" their output to each other instead of to stdout (1) or
-stderr (2). We will duplictae the output of ping from stdout to fd[1]-write
+and also replace STDOUT with our fd.  We will duplicate the output of ping from stdout to fd[1]-write
 and it will be read by grep from fd[0] and then finally sent to stdout (2)
-
 */
-
 
 int main(int argc, char *argv[])
 {
